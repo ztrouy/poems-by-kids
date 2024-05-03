@@ -124,7 +124,7 @@ GROUP BY emotion.id
 HAVING COUNT(poem.id) = (SELECT MIN(cnt) FROM (
 	SELECT COUNT(poem.id) AS cnt
 	FROM poem
-	LEFT JOIN poememotion
+	JOIN poememotion
 		ON poem.id = poememotion.poemid
 	GROUP BY poememotion.emotionid
 ));
